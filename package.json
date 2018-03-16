@@ -1,0 +1,58 @@
+{
+  "name": "feathers-hooks-i18n",
+  "description": "Parse i18n nested data for query and results",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mattchewone/feathers-hooks-i18n",
+  "main": "lib/",
+  "keywords": [
+    "feathers",
+    "feathers-plugin"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattchewone/feathers-hooks-i18n.git"
+  },
+  "author": {
+    "name": "Matt Chaffe",
+    "email": "matt@mattchaffe.uk",
+    "url": "https://mattchaffe.uk"
+  },
+  "contributors": [],
+  "bugs": {
+    "url": "https://github.com/mattchewone/feathers-hooks-i18n/issues"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "scripts": {
+    "publish": "git push origin --tags && npm run changelog && git push origin",
+    "release:pre": "npm version prerelease && npm publish --tag pre",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
+    "lint": "standard lib/*.js lib/**/*.js test/*.js test/**/*.js --fix",
+    "mocha": "mocha --opts mocha.opts",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
+    "test": "npm run lint && npm run coverage"
+  },
+  "standard": {
+    "envs": [
+      "mocha"
+    ]
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@feathersjs/errors": "^3.3.0"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "chai": "^3.5.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.0.4",
+    "semistandard": "^12.0.1"
+  }
+}
