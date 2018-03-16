@@ -1,17 +1,17 @@
-# feathers-hooks-i18n
+# feathers-i18n-hook
 
-[![Build Status](https://travis-ci.org/mattchewone/feathers-hooks-i18n.png?branch=master)](https://travis-ci.org/mattchewone/feathers-hooks-i18n)
-[![Code Climate](https://codeclimate.com/github/mattchewone/feathers-hooks-i18n/badges/gpa.svg)](https://codeclimate.com/github/mattchewone/feathers-hooks-i18n)
-[![Test Coverage](https://codeclimate.com/github/mattchewone/feathers-hooks-i18n/badges/coverage.svg)](https://codeclimate.com/github/mattchewone/feathers-hooks-i18n/coverage)
-[![Dependency Status](https://img.shields.io/david/mattchewone/feathers-hooks-i18n.svg?style=flat-square)](https://david-dm.org/mattchewone/feathers-hooks-i18n)
-[![Download Status](https://img.shields.io/npm/dm/feathers-hooks-i18n.svg?style=flat-square)](https://www.npmjs.com/package/feathers-hooks-i18n)
+[![Build Status](https://travis-ci.org/mattchewone/feathers-i18n-hook.png?branch=master)](https://travis-ci.org/mattchewone/feathers-i18n-hook)
+[![Code Climate](https://codeclimate.com/github/mattchewone/feathers-i18n-hook/badges/gpa.svg)](https://codeclimate.com/github/mattchewone/feathers-i18n-hook)
+[![Test Coverage](https://codeclimate.com/github/mattchewone/feathers-i18n-hook/badges/coverage.svg)](https://codeclimate.com/github/mattchewone/feathers-i18n-hook/coverage)
+[![Dependency Status](https://img.shields.io/david/mattchewone/feathers-i18n-hook.svg?style=flat-square)](https://david-dm.org/mattchewone/feathers-i18n-hook)
+[![Download Status](https://img.shields.io/npm/dm/feathers-i18n-hook.svg?style=flat-square)](https://www.npmjs.com/package/feathers-i18n-hook)
 
 > Parse i18n nested data for query and results
 
 ## Installation
 
 ```
-npm i feathers-hooks-i18n
+npm i feathers-i18n-hook
 ```
 
 ## Documentation
@@ -24,7 +24,7 @@ Here's an example of using the hooks
 
 Parsing Query
 ```js
-const { parseI18nQuery } = require('feathers-hooks-i18n')
+const { parseI18nQuery } = require('feathers-i18n-hook')
 
 module.exports = {
   before: {
@@ -46,7 +46,7 @@ params: {
 
 Parsing Data
 ```js
-const { parseI18nData } = require('feathers-hooks-i18n')
+const { parseI18nData } = require('feathers-i18n-hook')
 
 module.exports = {
   before: {
@@ -68,7 +68,7 @@ params: {
 
 Parsing Result
 ```js
-const { parseI18nQuery, parseI18nResult } = require('feathers-hooks-i18n')
+const { parseI18nQuery, parseI18nResult } = require('feathers-i18n-hook')
 
 module.exports = {
   before: {

@@ -1,8 +1,8 @@
 {
-  "name": "feathers-hooks-i18n",
+  "name": "feathers-i18n-hook",
   "description": "Parse i18n nested data for query and results",
   "version": "0.0.0",
-  "homepage": "https://github.com/mattchewone/feathers-hooks-i18n",
+  "homepage": "https://github.com/mattchewone/feathers-i18n-hook",
   "main": "lib/",
   "keywords": [
     "feathers",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattchewone/feathers-hooks-i18n.git"
+    "url": "git://github.com/mattchewone/feathers-i18n-hook.git"
   },
   "author": {
     "name": "Matt Chaffe",
@@ -20,7 +20,7 @@
   },
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/mattchewone/feathers-hooks-i18n/issues"
+    "url": "https://github.com/mattchewone/feathers-i18n-hook/issues"
   },
   "engines": {
     "node": ">= 6.0.0"
