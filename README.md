@@ -11,7 +11,7 @@
 ## Installation
 
 ```
-npm install feathers-hooks-i18n --save
+npm i feathers-hooks-i18n
 ```
 
 ## Documentation
@@ -20,17 +20,77 @@ TBD
 
 ## Complete Example
 
-Here's an example of a Feathers server that uses `feathers-hooks-i18n`. 
+Here's an example of using the hooks
 
+Parsing Query
 ```js
-const feathers = require('@feathersjs/feathers');
-const plugin = require('feathers-hooks-i18n');
+const { parseI18nQuery } = require('feathers-hooks-i18n')
 
-// Initialize the application
-const app = feathers();
+module.exports = {
+  before: {
+    find: [ parseI18nQuery({ fields: ['title', 'description'] }) ]
+  }
+}
 
-// Initialize the plugin
-app.configure(plugin());
+// Query:
+service.find({ query: { title: 'Post' } })
+// Converts to:
+params: {
+  query: {
+    title: {
+      en: 'Post'
+    }
+  }
+}
+```
+
+Parsing Data
+```js
+const { parseI18nData } = require('feathers-hooks-i18n')
+
+module.exports = {
+  before: {
+    find: [ parseI18nData({ fields: ['title', 'description'] }) ]
+  }
+}
+
+// Create:
+service.create({ title: 'Post' })
+// Converts to:
+params: {
+  data: {
+    title: {
+      en: 'Post'
+    }
+  }
+}
+```
+
+Parsing Result
+```js
+const { parseI18nQuery, parseI18nResult } = require('feathers-hooks-i18n')
+
+module.exports = {
+  before: {
+    find: [ parseI18nQuery({ fields: ['title', 'description'], language: 'fr' }) ]
+  },
+  after: {
+    find: [ parseI18nResult({ fields: ['title', 'description'], language: 'fr' }) ]
+  }
+}
+
+// Find:
+service.find({ query: { title: 'Lé Post' } })
+// Converts this record:
+{ id: 1, title: { en: 'The Post', fr: 'Lé Post' } }
+// To:
+context: {
+  result: {
+    data: [
+      { id: 1, title: 'Lé Post' }
+    ]
+  }
+}
 ```
 
 ## License
