@@ -1,5 +1,5 @@
 {
-  "name": "feathers-i18n-hook",
+  "name": "feathers-internationalisation-hook",
   "description": "Parse i18n nested data for query and results",
   "version": "0.0.4",
   "homepage": "https://github.com/mattchewone/feathers-i18n-hook",
