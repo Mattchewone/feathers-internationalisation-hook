@@ -1,8 +1,8 @@
 {
   "name": "feathers-internationalisation-hook",
-  "description": "Parse i18n nested data for query and results",
+  "description": "Parse internationalisation nested data for query and results",
   "version": "0.0.5",
-  "homepage": "https://github.com/mattchewone/feathers-i18n-hook",
+  "homepage": "https://github.com/mattchewone/feathers-internationalisation-hook",
   "main": "lib/",
   "keywords": [
     "feathers",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattchewone/feathers-i18n-hook.git"
+    "url": "git://github.com/mattchewone/feathers-internationalisation-hook.git"
   },
   "author": {
     "name": "Matt Chaffe",
@@ -20,7 +20,7 @@
   },
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/mattchewone/feathers-i18n-hook/issues"
+    "url": "https://github.com/mattchewone/feathers-internationalisation-hook/issues"
   },
   "engines": {
     "node": ">= 6.0.0"
