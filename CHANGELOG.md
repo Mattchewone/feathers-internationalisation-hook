@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.0.7](https://github.com/Mattchewone/feathers-internationalisation-hook/tree/v0.0.7) (2018-05-18)
+[Full Changelog](https://github.com/Mattchewone/feathers-internationalisation-hook/compare/v0.0.6...v0.0.7)
+
 ## [v0.0.6](https://github.com/Mattchewone/feathers-internationalisation-hook/tree/v0.0.6) (2018-03-20)
 [Full Changelog](https://github.com/Mattchewone/feathers-internationalisation-hook/compare/v0.0.5...v0.0.6)
 
