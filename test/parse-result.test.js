@@ -4,7 +4,7 @@ const makeHook = require('../lib/parse-result')
 const parseResult = makeHook({ fields: ['title', 'description'] })
 
 describe('Result', function () {
-  it('transforms the result as object', function (done) {
+  it('transforms the result as object', function () {
     const context = {
       type: 'after',
       result: {
@@ -14,19 +14,31 @@ describe('Result', function () {
         date: 'a date'
       }
     }
-    try {
-      parseResult(context)
-      const { result } = context
 
-      assert(result.title === 'a huge title', 'we have converted the title')
-      assert(result.date === 'a date', 'date has not been modified')
-      done()
-    } catch (error) {
-      done(error)
-    }
+    parseResult(context)
+    const { result } = context
+
+    assert.equal(result.title, 'a huge title', 'we have converted the title')
+    assert.equal(result.date, 'a date', 'date has not been modified')
   })
 
-  it('transforms the result as array (not-paginated)', function (done) {
+  it('ignores already transformed result', function () {
+    const context = {
+      type: 'after',
+      result: {
+        title: 'a huge title',
+        date: 'a date'
+      }
+    }
+
+    parseResult(context)
+    const { result } = context
+
+    assert.equal(result.title, 'a huge title', 'we have converted the title')
+    assert.equal(result.date, 'a date', 'date has not been modified')
+  })
+
+  it('transforms the result as array (not-paginated)', function () {
     const context = {
       type: 'after',
       result: [
@@ -48,23 +60,19 @@ describe('Result', function () {
         }
       ]
     }
-    try {
-      parseResult(context)
-      const { result } = context
 
-      assert(result[0].title === 'a huge title', 'we have converted the title')
-      assert(result[0].date === 'a date', 'date has not been modified')
+    parseResult(context)
+    const { result } = context
 
-      assert(result[1].title === 'another title', 'we have converted the title')
-      assert(result[1].description === 'a description', 'we have the correct description')
-      assert(result[1].date === 'a date', 'date has not been modified')
-      done()
-    } catch (error) {
-      done(error)
-    }
+    assert.equal(result[0].title, 'a huge title', 'we have converted the title')
+    assert.equal(result[0].date, 'a date', 'date has not been modified')
+
+    assert.equal(result[1].title, 'another title', 'we have converted the title')
+    assert.equal(result[1].description, 'a description', 'we have the correct description')
+    assert.equal(result[1].date, 'a date', 'date has not been modified')
   })
 
-  it('transforms the result as array (paginated)', function (done) {
+  it('transforms the result as array (paginated)', function () {
     const context = {
       type: 'after',
       result: {
@@ -88,23 +96,19 @@ describe('Result', function () {
         ]
       }
     }
-    try {
-      parseResult(context)
-      const { result } = context
 
-      assert(result.data[0].title === 'a huge title', 'we have converted the title')
-      assert(result.data[0].date === 'a date', 'date has not been modified')
+    parseResult(context)
+    const { result } = context
 
-      assert(result.data[1].title === 'another title', 'we have converted the title')
-      assert(result.data[1].description === 'a description', 'we have the correct description')
-      assert(result.data[1].date === 'a date', 'date has not been modified')
-      done()
-    } catch (error) {
-      done(error)
-    }
+    assert.equal(result.data[0].title, 'a huge title', 'we have converted the title')
+    assert.equal(result.data[0].date, 'a date', 'date has not been modified')
+
+    assert.equal(result.data[1].title, 'another title', 'we have converted the title')
+    assert.equal(result.data[1].description, 'a description', 'we have the correct description')
+    assert.equal(result.data[1].date, 'a date', 'date has not been modified')
   })
 
-  it('can change language (fallback to en)', function (done) {
+  it('can change language (fallback to en)', function () {
     const context = {
       type: 'after',
       result: {
@@ -128,19 +132,15 @@ describe('Result', function () {
         ]
       }
     }
-    try {
-      makeHook({ fields: ['title', 'description'], language: 'fr' })(context)
-      const { result } = context
 
-      assert(result.data[0].title === 'a huge title', 'we have converted the title')
-      assert(result.data[0].date === 'a date', 'date has not been modified')
+    makeHook({ fields: ['title', 'description'], language: 'fr' })(context)
+    const { result } = context
 
-      assert(result.data[1].title === 'another title', 'we have converted the title')
-      assert(result.data[1].description === 'a la french description', 'we have the correct description')
-      assert(result.data[1].date === 'a date', 'date has not been modified')
-      done()
-    } catch (error) {
-      done(error)
-    }
+    assert.equal(result.data[0].title, 'a huge title', 'we have converted the title')
+    assert.equal(result.data[0].date, 'a date', 'date has not been modified')
+
+    assert.equal(result.data[1].title, 'another title', 'we have converted the title')
+    assert.equal(result.data[1].description, 'a la french description', 'we have the correct description')
+    assert.equal(result.data[1].date, 'a date', 'date has not been modified')
   })
 })

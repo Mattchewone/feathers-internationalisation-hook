@@ -1,8 +1,8 @@
-const { expect } = require('chai')
+const assert = require('assert')
 const plugin = require('../lib')
 
 describe('feathers-hooks-i18n', () => {
   it('basic functionality', () => {
-    expect(typeof plugin).to.equal('object', 'It worked')
+    assert.equal(typeof plugin, 'object', 'It worked')
   })
 })
