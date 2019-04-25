@@ -4,30 +4,6 @@ const makeHook = require('../lib/parse-result')
 const parseResult = makeHook({ fields: ['title', 'description'] })
 
 describe('Result', function () {
-  it('empty description string', function () {
-    const context = {
-      type: 'after',
-      result: {
-        data: [
-          {
-            title: {
-              en: 'another title'
-            },
-            description: {
-              en: ''
-            }
-          }
-        ]
-      }
-    }
-
-    makeHook({ fields: ['title', 'description'], language: 'en' })(context)
-    const { result } = context
-
-    assert.strictEqual(result.data[0].title, 'another title', 'we have converted the title')
-    assert.strictEqual(result.data[0].description, '', 'we have the correct description')
-  })
-
   it('transforms the result as object', function () {
     const context = {
       type: 'after',
@@ -64,8 +40,8 @@ describe('Result', function () {
 
     parseResult(context)
     const { result } = context
-    assert.strictEqual(result.data[0].title, '', 'Output not matched !!!! ??? error')
-    assert.strictEqual(result.data[0].description, '', 'Empty str')
+    assert.strictEqual(result.data[0].title, '', 'Space not parsed correctly')
+    assert.strictEqual(result.data[0].description, '', 'Space not parsed correctly')
   })
 
   it('ignores already transformed result', function () {
