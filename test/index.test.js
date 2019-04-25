@@ -3,6 +3,6 @@ const plugin = require('../lib')
 
 describe('feathers-hooks-i18n', () => {
   it('basic functionality', () => {
-    assert.equal(typeof plugin, 'object', 'It worked')
+    assert.strictEqual(typeof plugin, 'object', 'It worked')
   })
 })
