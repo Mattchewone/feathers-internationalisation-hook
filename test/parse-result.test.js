@@ -18,8 +18,30 @@ describe('Result', function () {
     parseResult(context)
     const { result } = context
 
-    assert.equal(result.title, 'a huge title', 'we have converted the title')
-    assert.equal(result.date, 'a date', 'date has not been modified')
+    assert.strictEqual(result.title, 'a huge title', 'we have converted the title')
+    assert.strictEqual(result.date, 'a date', 'date has not been modified')
+  })
+
+  it('transforms the empty string', function () {
+    const context = {
+      type: 'after',
+      result: {
+        data:
+        [{
+          title: {
+            en: ''
+          },
+          description: {
+            en: ''
+          }
+        }]
+      }
+    }
+
+    parseResult(context)
+    const { result } = context
+    assert.strictEqual(result.data[0].title, '', 'Space not parsed correctly')
+    assert.strictEqual(result.data[0].description, '', 'Space not parsed correctly')
   })
 
   it('ignores already transformed result', function () {
@@ -34,8 +56,8 @@ describe('Result', function () {
     parseResult(context)
     const { result } = context
 
-    assert.equal(result.title, 'a huge title', 'we have converted the title')
-    assert.equal(result.date, 'a date', 'date has not been modified')
+    assert.strictEqual(result.title, 'a huge title', 'we have converted the title')
+    assert.strictEqual(result.date, 'a date', 'date has not been modified')
   })
 
   it('transforms the result as array (not-paginated)', function () {
@@ -64,12 +86,12 @@ describe('Result', function () {
     parseResult(context)
     const { result } = context
 
-    assert.equal(result[0].title, 'a huge title', 'we have converted the title')
-    assert.equal(result[0].date, 'a date', 'date has not been modified')
+    assert.strictEqual(result[0].title, 'a huge title', 'we have converted the title')
+    assert.strictEqual(result[0].date, 'a date', 'date has not been modified')
 
-    assert.equal(result[1].title, 'another title', 'we have converted the title')
-    assert.equal(result[1].description, 'a description', 'we have the correct description')
-    assert.equal(result[1].date, 'a date', 'date has not been modified')
+    assert.strictEqual(result[1].title, 'another title', 'we have converted the title')
+    assert.strictEqual(result[1].description, 'a description', 'we have the correct description')
+    assert.strictEqual(result[1].date, 'a date', 'date has not been modified')
   })
 
   it('transforms the result as array (paginated)', function () {
@@ -100,12 +122,12 @@ describe('Result', function () {
     parseResult(context)
     const { result } = context
 
-    assert.equal(result.data[0].title, 'a huge title', 'we have converted the title')
-    assert.equal(result.data[0].date, 'a date', 'date has not been modified')
+    assert.strictEqual(result.data[0].title, 'a huge title', 'we have converted the title')
+    assert.strictEqual(result.data[0].date, 'a date', 'date has not been modified')
 
-    assert.equal(result.data[1].title, 'another title', 'we have converted the title')
-    assert.equal(result.data[1].description, 'a description', 'we have the correct description')
-    assert.equal(result.data[1].date, 'a date', 'date has not been modified')
+    assert.strictEqual(result.data[1].title, 'another title', 'we have converted the title')
+    assert.strictEqual(result.data[1].description, 'a description', 'we have the correct description')
+    assert.strictEqual(result.data[1].date, 'a date', 'date has not been modified')
   })
 
   it('can change language (fallback to en)', function () {
@@ -136,11 +158,11 @@ describe('Result', function () {
     makeHook({ fields: ['title', 'description'], language: 'fr' })(context)
     const { result } = context
 
-    assert.equal(result.data[0].title, 'a huge title', 'we have converted the title')
-    assert.equal(result.data[0].date, 'a date', 'date has not been modified')
+    assert.strictEqual(result.data[0].title, 'a huge title', 'we have converted the title')
+    assert.strictEqual(result.data[0].date, 'a date', 'date has not been modified')
 
-    assert.equal(result.data[1].title, 'another title', 'we have converted the title')
-    assert.equal(result.data[1].description, 'a la french description', 'we have the correct description')
-    assert.equal(result.data[1].date, 'a date', 'date has not been modified')
+    assert.strictEqual(result.data[1].title, 'another title', 'we have converted the title')
+    assert.strictEqual(result.data[1].description, 'a la french description', 'we have the correct description')
+    assert.strictEqual(result.data[1].date, 'a date', 'date has not been modified')
   })
 })
