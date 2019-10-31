@@ -1,12 +1,12 @@
 # feathers-internationalisation-hook
 
 [![Build Status](https://travis-ci.org/mattchewone/feathers-internationalisation-hook.png?branch=master)](https://travis-ci.org/mattchewone/feathers-internationalisation-hook)
-[![Code Climate](https://codeclimate.com/github/mattchewone/feathers-internationalisation-hook/badges/gpa.svg)](https://codeclimate.com/github/mattchewone/feathers-internationalisation-hook)
-[![Test Coverage](https://codeclimate.com/github/mattchewone/feathers-internationalisation-hook/badges/coverage.svg)](https://codeclimate.com/github/mattchewone/feathers-internationalisation-hook/coverage)
 [![Dependency Status](https://img.shields.io/david/mattchewone/feathers-internationalisation-hook.svg?style=flat-square)](https://david-dm.org/mattchewone/feathers-internationalisation-hook)
 [![Download Status](https://img.shields.io/npm/dm/feathers-internationalisation-hook.svg?style=flat-square)](https://www.npmjs.com/package/feathers-internationalisation-hook)
 
 > Parse internationalisation nested data for query and results
+
+**Only tested with FeathersJS V3**
 
 ## Installation
 
@@ -14,15 +14,11 @@
 npm i feathers-internationalisation-hook
 ```
 
-## Documentation
-
-TBD
-
 ## Complete Example
 
 Here's an example of using the hooks
 
-Parsing Query
+**Parsing Query**
 ```js
 const { parseI18nQuery } = require('feathers-internationalisation-hook')
 
@@ -44,7 +40,7 @@ params: {
 }
 ```
 
-Parsing Data
+**Parsing Data**
 ```js
 const { parseI18nData } = require('feathers-internationalisation-hook')
 
@@ -66,7 +62,7 @@ params: {
 }
 ```
 
-Parsing Result
+**Parsing Result**
 ```js
 const { parseI18nQuery, parseI18nResult } = require('feathers-internationalisation-hook')
 
